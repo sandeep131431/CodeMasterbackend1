@@ -100,7 +100,7 @@ const logout = async(req,res)=>{
         await redisClient.expireAt(`token:${token}`,payload.exp);
     //    Token add kar dunga Redis ke blockList
     //    Cookies ko clear kar dena.....
-     localStorage.removeItem("token");
+    
     res.cookie("token",null,{expires: new Date(Date.now())});
     res.send("Logged Out Succesfully");
 
